@@ -1,0 +1,138 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ACPCoder
+@_exported import ACPCoder
+import Foundation
+import Swift
+import _Concurrency
+public struct Segments : Swift.Codable {
+  public var text: Swift.String?
+  public var results: [ACPCoder.Segments.Results]?
+  public struct Results : Swift.Codable {
+    public var confidence: Swift.Double?
+    public var starttime: Swift.Int?
+    public var endtime: Swift.Int?
+    public var rulename: Swift.String?
+    public var tags: [Swift.Int]?
+    public var text: Swift.String?
+    public var tokens: [ACPCoder.Segments.Results.Tokens]?
+    public struct Tokens : Swift.Codable {
+      public var confidence: Swift.Double?
+      public var spoken: Swift.String?
+      public var written: Swift.String?
+      public var starttime: Swift.Int?
+      public var endtime: Swift.Int?
+      public var label: Swift.String?
+      public func encode(to encoder: Swift.Encoder) throws
+      public init(from decoder: Swift.Decoder) throws
+    }
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EmotionData {
+  public var type: ACPCoder.EmotionData.EmotionType
+  public var dataArr: [Swift.Int]
+  public var min: Swift.Int
+  public var max: Swift.Int
+  public init(type: ACPCoder.EmotionData.EmotionType, dataArr: [Swift.Int], min: Swift.Int, max: Swift.Int)
+  public var name: Swift.String {
+    get
+  }
+  public enum EmotionType : Swift.String {
+    case P001
+    case P002
+    case P003
+    case P004
+    case P005
+    case P006
+    case P007
+    case P008
+    case P009
+    case P010
+    case P011
+    case P012
+    case P013
+    case P014
+    case P015
+    case P016
+    case P017
+    case P018
+    case P019
+    case P020
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+public enum ACPJsonCoder {
+  public static func decoder(of data: Foundation.Data) -> ACPCoder.AcpJobData?
+  public static func convertEmotionSegmentTime(data: ACPCoder.AcpJobData?) -> [(Swift.Double, Swift.Double)]
+  public static func convertEmotionData(data: ACPCoder.AcpJobData?) -> [ACPCoder.EmotionData]
+}
+public struct AcpJobData : Swift.Codable {
+  public init()
+  public var md5: Swift.String?
+  public var size: Swift.Int?
+  public var sessionId: Swift.String?
+  public var serviceId: Swift.String?
+  public var status: ACPCoder.AcpJobData.Status
+  public var utteranceId: Swift.String?
+  public var code: Swift.String?
+  public var message: Swift.String?
+  public var segments: [ACPCoder.Segments]?
+  public var emotionDataArray: [ACPCoder.AcpJobData.EmotionalData]?
+  public var errorMessage: Swift.String?
+  public enum Status : Swift.String, Swift.Codable {
+    case NoSend
+    case Sending
+    case Queued
+    case Started
+    case Processing
+    case Completed
+    case Error
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public struct EmotionalData : Swift.Codable {
+    public var startTime: Swift.Int?
+    public var endTime: Swift.Int?
+    public var P001: Swift.Int?
+    public var P002: Swift.Int?
+    public var P003: Swift.Int?
+    public var P004: Swift.Int?
+    public var P005: Swift.Int?
+    public var P006: Swift.Int?
+    public var P007: Swift.Int?
+    public var P008: Swift.Int?
+    public var P009: Swift.Int?
+    public var P010: Swift.Int?
+    public var P011: Swift.Int?
+    public var P012: Swift.Int?
+    public var P013: Swift.Int?
+    public var P014: Swift.Int?
+    public var P015: Swift.Int?
+    public var P016: Swift.Int?
+    public var P017: Swift.Int?
+    public var P018: Swift.Int?
+    public var P019: Swift.Int?
+    public var P020: Swift.Int?
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension ACPCoder.EmotionData.EmotionType : Swift.Equatable {}
+extension ACPCoder.EmotionData.EmotionType : Swift.Hashable {}
+extension ACPCoder.EmotionData.EmotionType : Swift.RawRepresentable {}
+extension ACPCoder.AcpJobData.Status : Swift.Equatable {}
+extension ACPCoder.AcpJobData.Status : Swift.Hashable {}
+extension ACPCoder.AcpJobData.Status : Swift.RawRepresentable {}
