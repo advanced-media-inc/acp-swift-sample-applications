@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="HomeViewController" customModule="EmotionAnalysisApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hlO-vs-cGb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="702"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyM-gb-hjf">
+                                <rect key="frame" x="0.0" y="746" width="414" height="150"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-Wn-NPG">
+                                        <rect key="frame" x="0.0" y="30" width="414" height="60"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRX-Uu-DXW">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJY-xi-Oty" customClass="RecordWaveView" customModule="EmotionAnalysisApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="e77-0q-6YZ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkx-JB-DBf">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeB-HQ-dsu">
+                                                        <rect key="frame" x="177" y="0.5" width="60" height="59"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="Vb7-1C-47p"/>
+                                                            <constraint firstAttribute="height" constant="60" id="YTc-3F-9gR"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" backgroundImage="record.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapRecordButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tba-pf-vkn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="oeB-HQ-dsu" secondAttribute="bottom" id="OLN-8d-Viu"/>
+                                                    <constraint firstItem="oeB-HQ-dsu" firstAttribute="centerX" secondItem="rkx-JB-DBf" secondAttribute="centerX" id="ppQ-vw-dFC"/>
+                                                    <constraint firstItem="oeB-HQ-dsu" firstAttribute="top" secondItem="rkx-JB-DBf" secondAttribute="top" id="twg-zZ-bTI"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1lp-Wn-NPG" secondAttribute="trailing" id="5jn-sb-8nM"/>
+                                    <constraint firstAttribute="bottom" secondItem="1lp-Wn-NPG" secondAttribute="bottom" constant="60" id="8pm-Y9-HC4"/>
+                                    <constraint firstItem="1lp-Wn-NPG" firstAttribute="leading" secondItem="xyM-gb-hjf" secondAttribute="leading" id="V9Y-Vq-4Su"/>
+                                    <constraint firstItem="1lp-Wn-NPG" firstAttribute="centerX" secondItem="xyM-gb-hjf" secondAttribute="centerX" id="WGW-10-11Q"/>
+                                    <constraint firstAttribute="height" constant="150" id="iwb-Az-YNt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xyM-gb-hjf" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="5B3-YD-5zw"/>
+                            <constraint firstItem="hlO-vs-cGb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="6z8-K2-E8u"/>
+                            <constraint firstAttribute="bottom" secondItem="xyM-gb-hjf" secondAttribute="bottom" id="Wmz-uy-41m"/>
+                            <constraint firstItem="hlO-vs-cGb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Yab-dI-juW"/>
+                            <constraint firstItem="hlO-vs-cGb" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="eWQ-qT-Ubo"/>
+                            <constraint firstItem="xyM-gb-hjf" firstAttribute="top" secondItem="hlO-vs-cGb" secondAttribute="bottom" id="uaH-62-R6K"/>
+                            <constraint firstAttribute="trailing" secondItem="xyM-gb-hjf" secondAttribute="trailing" id="xIi-p6-tm2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="recordButton" destination="oeB-HQ-dsu" id="fuG-HY-q8w"/>
+                        <outlet property="recordView" destination="xyM-gb-hjf" id="gjb-fj-pO4"/>
+                        <outlet property="recordViewHeight" destination="iwb-Az-YNt" id="6Wh-eS-qb5"/>
+                        <outlet property="recordWaveView" destination="JJY-xi-Oty" id="89g-u7-UPT"/>
+                        <outlet property="table" destination="hlO-vs-cGb" id="34R-a6-L4e"/>
+                        <outlet property="timerLabel" destination="WRX-Uu-DXW" id="BCq-pm-2Rg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78" y="65"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="record.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

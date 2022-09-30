@@ -1,0 +1,11 @@
+framework module ACPCoder {
+  umbrella header "ACPCoder.h"
+
+  export *
+  module * { export * }
+}
+
+module ACPCoder.Swift {
+    header "ACPCoder-Swift.h"
+    requires objc
+}
